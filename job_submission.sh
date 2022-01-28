@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INPUT=input_dcm2bids.csv
+INPUT=newsubs.csv
 OLDIFS=$IFS
 IFS=','
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
