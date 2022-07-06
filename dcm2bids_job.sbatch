@@ -1,6 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=dcm2bids
-#SBATCH  output=/working/mochila2/JC/code/make-bids/logs/%x-%j.log
+#SBATCH --output=/working/mochila2/JC/code/make-bids/logs/%x-%j.log
+#SBATCH --mem-per-cpu=2G
+#SBATCH --time=03:00:00
 
 pwd; hostname; date
 
@@ -20,3 +22,5 @@ echo "Running dcm2bids for BACPAC sub-${1}."
 
 # For running on new subs or re-running with new configuration:
 dcm2bids -o $bids_dir -d $1 -p $2 -s $3 -c $config_file --forceDcm2niix --clobber
+
+[[ -n "$SLURM_JOB_ID" ]] && sstat --format="JobID,AveCPU,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" -j "$SLURM_JOB_ID"
