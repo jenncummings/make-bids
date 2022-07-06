@@ -10,6 +10,6 @@ do
     #echo "subject : $subject"
     #echo "session : $session"
     #sh job_test.sh $dir $subject $session
-    sbatch dcm2bids_job.sbatch $dir $subject $session
+    qsub -cwd -j y -q city_short.q dcm2bids_job.sh $dir $subject $session
 done < $INPUT
 IFS=$OLDIFS
