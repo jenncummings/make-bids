@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=dcm2bids
 #SBATCH --output=/working/mochila2/JC/code/make-bids/logs/%x-%j.log
-#SBATCH --mem-per-cpu=2G
+#SBATCH --mem-per-cpu=8G
 #SBATCH --time=03:00:00
 
 pwd; hostname; date
